@@ -49,6 +49,23 @@ public class Employee {
         String employeeID = "ID: " + iD;
         return employeeName + employeeDepartment + employeeSalary + employeeID;
     }
+    @Override
+    public boolean equals(Object otherEmployee){
+        if(this == otherEmployee){
+            return true;
+        }
+        if (otherEmployee == null || this.getClass() != otherEmployee.getClass()) {
+            return false;
+        }
+        Employee employee2 = (Employee) otherEmployee;
+        return fullName.equals(employee2.fullName) && department == employee2.department
+                && salary == employee2.salary && iD == employee2.iD;
+    }
+
+    @Override
+    public int hashCode(){
+        return java.util.Objects.hash(fullName, department, salary, iD);
+    }
 
 
 
